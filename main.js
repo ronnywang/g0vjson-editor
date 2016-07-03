@@ -127,6 +127,6 @@ $(function(){
             $('#warnings').val(warnings.map(function(v, i){ return (i+1) + '. ' + v; }).join("\n"));
         }, 'json');
     });
+    main();
 });
 
-main();
