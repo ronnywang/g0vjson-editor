@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>g0v.json editor</title>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
+<script src="main.js"></script>
+</head>
+<body>
+<div class="container">
+    <h1>g0v.json editor</h1>
+    <p>這個專案是利用 <a href="https://github.com/g0v/g0v.json">g0v/g0v.json</a> 的規格，自動產生出可以編輯修改 g0v.json 並檢查格式內容的線上編輯器</p>
+
+    <h2>從 GitHub 匯入 g0v.json</h2>
+    <form id="import-form">
+        GitHub 網址: <input type="text" id="github-url" placeholder="輸入 github 網址">
+        <button type="submit">匯入</button>
+    </form>
+
+    <h2>修改 g0v.json</h2>
+    <form method="post" id="g0v-form">
+        <div id="g0v-form-fields">
+        </div>
+        <button type="submit">產生 g0v.json</button>
+    </form>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>g0v.json</h2>
+            <textarea id="output" class="form-control" rows="20"></textarea>
+        </div>
+        <div class="col-md-6">
+            <h2>Warning</h2>
+            <textarea id="warnings" class="form-control" rows="20"></textarea>
+        </div>
+    </div>
+
+</div>
+<script id="input-text" type="text/html">
+<div class="form-group">
+    <label>{{TITLE}}</label>
+    <input type="type" class="form-control" name="{{ID}}" placeholder="{{DESC}}">
+</div>
+</script>
+<script id="input-select" type="text/html">
+<div class="form-group">
+    <label>{{TITLE}}</label>
+    <select class="form-control" name="{{ID}}">
+    {{OPTIONS}}
+    </select>
+</div>
+</script>
+<script id="input-text-array" type="text/html">
+<div class="form-group">
+    <label>{{TITLE}}</label> 
+    <a href="#" class="button-add"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+</div>
+</script>
+<script id="input-text-array-entry" type="text/html">
+<div class="input-group">
+    <input type="type" class="form-control" name="{{ID}}[]" placeholder="{{DESC}}">
+    <div class="input-group-addon">
+        <a href="#" class="button-remove"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+    </div>
+</div>
+</script>
+</body>
+</html> 
